@@ -1,0 +1,8 @@
+xx.o反汇编到xx.asm
+./objconv -fnasm ../simple-os/ckernel.o ../simple-os/ckernel.asm
+
+把xx.c编译到xx.o
+gcc -m32 -fno-asynchronous-unwind-tables -s -c -o xx.o xx.c
+
+把两个编译好的模块链接成一个模块：
+ld -m elf_i386 -r x1.o x2.o -o ckernel.o
